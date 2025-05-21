@@ -1,30 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 131 - Basic Layout</title>
+    <title>WDD 131 – Dynamic Web Fundamentals - Okoye Chigozie Miracle</title>
+    <meta name="description"
+        content="WDD 131 – Dynamic Web Fundamentals, Your Name, home page with dynamic content, JavaScript, CSS Grid, and Flexbox">
+    <meta name="author" content="Your Name">
     <link rel="stylesheet" href="styles/layout.css">
+    <script src="scripts/getdates.js" defer></script>
 </head>
+
 <body>
     <header>
+        <h1>WDD 131: Dynamic Web Fundamentals - Okoye Chigozie Miracle</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">project</a></li>
-                <li><a href="#">services</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank">LinkedIn</a></li>
+                <li><a href="https://byupw.instructure.com/" target="_blank">Canvas</a></li>
+                <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7"
+                        target="_blank">Favorite Scripture</a></li>
+                <li><a href="#">Final Project</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section>
-            <h1>Main content</h1>
-            <p>Aside Content</p>
+        <section class="card">
+            <h2>About Me</h2>
+            <img src="Week01/images/Godje_profile.jpg" alt="Profile picture of Your Name">
+            <p>Hi, I'm Okoye Chigozie Miracle, I was born & raised in Nigeria. I live with my parents
+                am currently a  student of Dynamic Web Fundamentals. I enjoy learning about web development and
+                creating user-friendly websites.</p>
+        </section>
+        <section class="card">
+            <h2>My Interests</h2>
+            <img src="Week01/images/proxy-image.webp" alt="Image representing interests">
+            <p>I love coding, hiking, and reading scriptures. I'm passionate about using technology to solve real-world
+                problems.</p>
         </section>
     </main>
     <footer>
-        <p>&copy;Footer content</p>
+        <p>&copy; <span id="currentyear"></span> Your Name, Your State/Country</p>
+        <p id="lastModified"></p>
     </footer>
 </body>
+
 </html>
