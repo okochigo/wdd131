@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131 – Madagascar - Your Name</title>
+    <meta name="description"
+        content="WDD 131 – Madagascar, Your Name, explore the culture, wildlife, and beauty of Madagascar">
+    <meta name="author" content="Your Name">
+    <link rel="stylesheet" href="styles/place.css">
+    <script src="scripts/place.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="hero">
+            <picture>
+                <source media="(min-width: 768px)" srcset="images/hero-desktop.webp">
+                <img src="images/hero-mobile.webp" alt="Madagascar landscape with baobab trees">
+            </picture>
+            <h1>Madagascar</h1>
+        </div>
+    </header>
+    <main>
+        <section class="weather">
+            <h2>Weather <span class="weather-icon">⛅</span></h2>
+            <img src="images/weather-icon.svg" alt="Sunny weather icon" class="weather-icon-mobile">
+            <p>Temperature: <span id="temperature">25</span> °C</p>
+            <p>Wind Speed: <span id="windspeed">10</span> km/h</p>
+            <p>Wind Chill: <span id="windchill">N/A</span></p>
+        </section>
+        <section class="info">
+            <h2>About Madagascar</h2>
+            <p>Madagascar, an island nation off the southeastern coast of Africa, is known for its unique biodiversity,
+                including lemurs and baobab trees. Its vibrant culture blends African, Asian, and European influences.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>© <span id="currentyear"></span> Your Name, Your State/Country</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+
+</html>
