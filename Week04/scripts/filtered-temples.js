@@ -56,96 +56,87 @@ const temples = [
             "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
     },
     {
-        templeName: "Nauvoo Illinois",
-        location: "Nauvoo, Illinois, United States",
-        dedicated: "2002, June, 27",
-        area: 54000,
+        templeName: "Salt Lake",
+        location: "Salt Lake City, Utah, United States",
+        dedicated: "1893, April, 6",
+        area: 253015,
         imageUrl:
-            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/nauvoo-illinois/400x250/nauvoo-temple-756499-wallpaper.jpg"
+            "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/34/00/f0/salt-lake-city.jpg?w=2400&h=1000&s=1"
     },
     {
-        templeName: "Hong Kong China",
-        location: "Kowloon, Hong Kong",
-        dedicated: "1996, May, 26",
-        area: 21771,
+        templeName: "Tokyo Japan",
+        location: "Tokyo, Japan",
+        dedicated: "1980, October, 27",
+        area: 52997,
         imageUrl:
-            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/hong-kong-china/400x250/hong-kong-temple-lds-650764-wallpaper.jpg"
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/tokyo-japan/400x250/tokyo-japan-temple-lds-865659-wallpaper.jpg"
     },
     {
-        templeName: "Red Cliffs Utah",
-        location: "St. George, Utah, United States",
-        dedicated: "2024, March, 24",
-        area: 96000,
+        templeName: "Accra Ghana",
+        location: "Accra, Ghana",
+        dedicated: "2004, January, 11",
+        area: 17500,
         imageUrl:
-            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/red-cliffs-utah/400x250/red-cliffs-utah-temple-exterior.jpg"
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/accra-ghana/400x250/accra-ghana-temple-1248343-wallpaper.jpg"
     }
 ];
 
-
-const currentYear = new Date().getFullYear();
-document.getElementById('currentyear').textContent = currentYear;
-
-const lastModified = document.lastModified;
-document.getElementById('lastModified').textContent = `Last Modified: ${lastModified}`;
-
-
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-    hamburger.textContent = navMenu.classList.contains('open') ? '✖' : '☰';
-});
-
-
-const gallery = document.getElementById('temple-gallery');
+const templeContainer = document.getElementById("temple-container");
 
 function displayTemples(templeList) {
-    gallery.innerHTML = ''; 
+    templeContainer.innerHTML = "";
     templeList.forEach(temple => {
-        const card = document.createElement('div');
-        card.className = 'temple-card';
-        card.innerHTML = `
-            <h3>${temple.templeName}</h3>
-            <p>Location: ${temple.location}</p>
-            <p>Dedicated: ${temple.dedicated}</p>
-            <p>Area: ${temple.area} sq ft</p>
-            <img src="${temple.imageUrl}" alt="${temple.templeName} Temple" loading="lazy">
-        `;
-        gallery.appendChild(card);
+        const templeCard = document.createElement("figure");
+        templeCard.classList.add("temple-card");
+        templeCard.innerHTML = `
+        <h3>${temple.templeName}</h3>
+        <p><strong>Location:</strong> ${temple.location}</p>
+        <p><strong>Dedicated:</strong> ${temple.dedicated}</p>
+        <p><strong>Area:</strong> ${temple.area} sq ft</p>
+        <img src="${temple.imageUrl}" alt="${temple.templeName} Temple" loading="lazy">
+      `;
+        templeContainer.appendChild(templeCard);
     });
 }
 
-
-displayTemples(temples);
-
-
-const filterLinks = document.querySelectorAll('nav a[data-filter]');
-
-filterLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+const navLinks = document.querySelectorAll("nav a");
+navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
         e.preventDefault();
-        const filter = link.getAttribute('data-filter');
+        const filter = e.target.dataset.filter;
         let filteredTemples;
 
         switch (filter) {
-            case 'all':
-                filteredTemples = temples;
+            case "old":
+                filteredTemples = temples.filter(temple => {
+                    const year = parseInt(temple.dedicated.split(",")[0]);
+                    return year < 1900;
+                });
                 break;
-            case 'old':
-                filteredTemples = temples.filter(temple => new Date(temple.dedicated).getFullYear() < 1900);
+            case "new":
+                filteredTemples = temples.filter(temple => {
+                    const year = parseInt(temple.dedicated.split(",")[0]);
+                    return year > 2000;
+                });
                 break;
-            case 'new':
-                filteredTemples = temples.filter(temple => new Date(temple.dedicated).getFullYear() > 2000);
-                break;
-            case 'large':
+            case "large":
                 filteredTemples = temples.filter(temple => temple.area > 90000);
                 break;
-            case 'small':
+            case "small":
                 filteredTemples = temples.filter(temple => temple.area < 10000);
                 break;
+            case "home":
+            default:
+                filteredTemples = temples;
         }
 
         displayTemples(filteredTemples);
     });
 });
+
+// Display all temples on page load
+displayTemples(temples);
+
+// Update footer
+document.getElementById("current-year").textContent = new Date().getFullYear();
+document.getElementById("last-modified").textContent = document.lastModified;
