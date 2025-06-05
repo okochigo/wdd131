@@ -61,7 +61,7 @@ const temples = [
         dedicated: "1893, April, 6",
         area: 253015,
         imageUrl:
-            "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/34/00/f0/salt-lake-city.jpg?w=2400&h=1000&s=1"
+            "./Week04/images/salt-lake-city-ut.jpg"
     },
     {
         templeName: "Tokyo Japan",
@@ -69,7 +69,7 @@ const temples = [
         dedicated: "1980, October, 27",
         area: 52997,
         imageUrl:
-            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/tokyo-japan/400x250/tokyo-japan-temple-lds-865659-wallpaper.jpg"
+            "./Week04/images/Untitled.jpg"
     },
     {
         templeName: "Accra Ghana",
@@ -77,7 +77,7 @@ const temples = [
         dedicated: "2004, January, 11",
         area: 17500,
         imageUrl:
-            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/accra-ghana/400x250/accra-ghana-temple-1248343-wallpaper.jpg"
+            "./Week04/images/premium_photo-1697730116501-72f5749dffce.avif"
     }
 ];
 
