@@ -1,4 +1,4 @@
-// Product array
+
 const products = [
     {
         id: "fc-1888",
@@ -27,7 +27,7 @@ const products = [
     }
 ];
 
-// Populate product select options
+
 document.addEventListener('DOMContentLoaded', () => {
     const productSelect = document.getElementById('productName');
     if (productSelect) {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Update review counter on review.html
+    
     const reviewCountElement = document.getElementById('reviewCount');
     if (reviewCountElement) {
         let reviewCount = localStorage.getItem('reviewCount') || 0;
