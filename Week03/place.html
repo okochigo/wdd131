@@ -2,47 +2,50 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 131 – Madagascar - Okoye Chigozie Miracle</title>
-    <meta name="description"
-        content="WDD 131 – Madagascar, Okoye Chigozie Miracle, explore the culture, wildlife, and beauty of Madagascar">
-    <meta name="author" content="Okoye Chigozie Miracle">
-    <link rel="stylesheet" href="styles/place.css">
-    <script src="scripts/place.js" defer></script>
+    <title>Explore Japan</title>
+    <link rel="stylesheet" href="scripts/place.js">
 </head>
 
 <body>
     <header>
-        <div class="hero">
-            <picture>
-                <source media="(min-width: 768px)" srcset="images/hero-desktop.webp">
-                <img src="./images/6wxiqcaifn_Madagascar_Baobab2_WWspring2024.jpg"
-                    alt="Madagascar landscape with baobab trees ">
-            </picture>
-            <h1>Madagascar</h1>
-        </div>
+        <picture>
+            <source media="(max-width: 600px)" srcset="images/hero-mobile.webp">
+            <source media="(min-width: 601px)" srcset="images/hero-desktop.webp">
+            <img src="./Week03/images/6wxiqcaifn_Madagascar_Baobab2_WWspring2024.jpg" alt="Japanese culture" loading="lazy">
+        </picture>
+        <h1>Explore Japan</h1>
     </header>
     <main>
-        <section class="weather">
-            <h2>Weather <span class="weather-icon">⛅</span></h2>
-            <img src="./images/6347565.png" alt="Sunny weather icon" class="weather-icon-mobile">
-            <p>Temperature: <span id="temperature">25</span> °C</p>
-            <p>Wind Speed: <span id="windspeed">10</span> km/h</p>
-            <p>Wind Chill: <span id="windchill">N/A</span></p>
+        <section class="intro">
+            <h2>About Japan</h2>
+            <p>Japan, an island nation in East Asia, is known for its rich culture, advanced technology, and stunning
+                landscapes. From the bustling streets of Tokyo to the serene temples of Kyoto, Japan offers a unique
+                blend of tradition and modernity.</p>
         </section>
-        <section class="info">
-            <h2>About Madagascar</h2>
-            <p>Madagascar, an island nation off the southeastern coast of Africa, is known for its unique biodiversity,
-                including lemurs and baobab trees. Its vibrant culture blends African, Asian, and European influences.
-            </p>
+        <section class="weather">
+            <h2>Weather</h2>
+            <img src="./Week03/images/6347565.png" alt="Weather icon" class="weather-icon">
+            <p>Temperature: <span id="temperature">10</span>°C</p>
+            <p>Wind Speed: <span id="windSpeed">5</span> km/h</p>
+            <p>Wind Chill: <span id="windChill">N/A</span></p>
+        </section>
+        <section class="facts">
+            <h2>Quick Facts</h2>
+            <ul>
+                <li>Capital: Tokyo</li>
+                <li>Population: ~125 million</li>
+                <li>Language: Japanese</li>
+                <li>Currency: Yen (JPY)</li>
+            </ul>
         </section>
     </main>
     <footer>
-        <p>© <span id="currentyear"></span> 🏝 Okoye Chigozie Miracle 🏝 Anambara/Nigeria</p>
-        <p id="lastModified"></p>
+        <p>&copy; <span id="currentYear"></span> Your Name. All rights reserved.</p>
+        <p>Last Modified: <span id="lastModified"></span></p>
     </footer>
+    <script src="Week03/scripts/place.js" defer></script>
 </body>
 
 </html>

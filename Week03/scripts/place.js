@@ -1,28 +1,27 @@
-// Footer: Current Year and Last Modified
-const currentYear = new Date().getFullYear();
-document.getElementById('currentyear').textContent = currentYear;
+document.addEventListener('DOMContentLoaded', () => {
+    
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    document.getElementById('lastModified').textContent = document.lastModified;
 
-const lastModified = document.lastModified;
-document.getElementById('lastModified').textContent = `Last Modified: ${lastModified}`;
+    
+    const temperature = 10; 
+    const windSpeed = 5; 
 
-// Wind Chill Calculation
-function calculateWindChill(temperature, windSpeed) {
-    // Metric formula: °C, km/h
-    return (13.12 + 0.6215 * temperature - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * temperature * Math.pow(windSpeed, 0.16)).toFixed(1);
-}
 
-// Static weather data (Metric for Madagascar)
-const temperature = 25; // °C
-const windSpeed = 10; // km/h
+    document.getElementById('temperature').textContent = temperature;
+    document.getElementById('windSpeed').textContent = windSpeed;
 
-// Update weather display
-document.getElementById('temperature').textContent = temperature;
-document.getElementById('windspeed').textContent = windSpeed;
+    
+    const windChillElement = document.getElementById('windChill');
+    if (temperature <= 10 && windSpeed > 4.8) {
+        const windChill = calculateWindChill(temperature, windSpeed);
+        windChillElement.textContent = `${windChill.toFixed(1)}°C`;
+    } else {
+        windChillElement.textContent = 'N/A';
+    }
+});
 
-// Check if wind chill is applicable
-if (temperature <= 10 && windSpeed > 4.8) {
-    const windChill = calculateWindChill(temperature, windSpeed);
-    document.getElementById('windchill').textContent = `${windChill} °C`;
-} else {
-    document.getElementById('windchill').textContent = 'N/A';
-}
+
+function calculateWindChill(temp, speed) {
+    return 13.12 + 0.6215 * temp - 11.37 * Math.pow(speed, 0.16) + 0.3965 * temp * Math.pow(speed, 0.16);
+  }
