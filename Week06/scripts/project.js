@@ -18,7 +18,7 @@ if (document.querySelector('#greeting')) {
     updateGreeting();
 }
 
-// Conditional Branching, Objects, Arrays, Template Literals
+
 const user = { name: '', email: '' };
 const projects = ['Project A', 'Project B', 'Project C'];
 
@@ -32,7 +32,7 @@ if (document.querySelector('#project-list') && projects.length > 0) {
     displayProjects();
 }
 
-// localStorage
+
 function saveFormData() {
     const name = document.querySelector('#name').value;
     localStorage.setItem('userName', name);
